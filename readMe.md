@@ -45,3 +45,23 @@ Before you begin, ensure you have met the following requirements:
     ```
 
     The server will start on `http://localhost:5000`.
+
+### Frontend
+
+1. Navigate to the frontend directory:
+
+    ```bash
+    cd ../frontend/todo-app
+    ```
+
+2. Install frontend dependencies:
+
+    ```bash
+    npm install
+    ```
+
+3. Start the frontend development server:
+
+    ```bash
+    npm run dev
+    ```
