@@ -1,0 +1,27 @@
+.formTodo {
+    display: grid;
+    grid-template-columns: 1fr auto; 
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.todoInput {
+    padding: 10px;
+    border: 1px solid #ccc;
+    grid-column: 1 / span 1; 
+}
+
+.addTodoButton {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    grid-column: 2 / span 1;
+}
+
+.addTodoButton:hover {
+    background-color: #0056b3;
+}

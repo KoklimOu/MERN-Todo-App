@@ -1,4 +1,6 @@
-import { useState } from "react";
+import { useState } from 'react';
+import PropTypes from 'prop-types';
+import styles from './TodoForm.module.css'; 
 
 const TodoForm = ({ addTodo }) => {
     const [todoText, setTodoText] = useState('');
@@ -15,18 +17,21 @@ const TodoForm = ({ addTodo }) => {
     };
 
     return (
-        <form className="form-todo" onSubmit={handleSubmit}>
+        <form className={styles.formTodo} onSubmit={handleSubmit}> 
             <input 
-                className="todo-input" 
+                className={styles.todoInput} 
                 type="text" 
                 value={todoText} 
                 onChange={handleChange} 
                 placeholder="Enter your todo" 
             />
-            <button className="todo-button" type="submit">+</button>
+            <button className={styles.addTodoButton} type="submit">+</button> 
         </form>
-    
     );
+};
+
+TodoForm.propTypes = {
+    addTodo: PropTypes.func.isRequired
 };
 
 export default TodoForm;

@@ -1,0 +1,44 @@
+li {
+    list-style: none;
+    background-color: #d3e8ff3a;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 8px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.300);
+}
+
+li:hover {
+    background-color: #d3e8ff81;
+}
+
+.checkTodo {
+    display: flex;
+    justify-content: baseline;
+    width: 100%;
+}
+
+.checkTodo .text {
+    width: 100%;
+    border: none;
+    background: transparent;
+    outline: none;
+    cursor: pointer;
+}
+
+.checkTodo .text:disabled {
+    cursor: default;
+}
+
+.checkTodo .text:enabled {
+    cursor: text;
+}
+
+.actionTodo {
+    display: grid;
+    gap: 2px;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.actionIcon {
+    color: #00377262;
+}

@@ -1,10 +1,10 @@
-import { useState } from "react";
+import { useState } from 'react';
+import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSave, faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
+import styles from './Todo.module.css';
 
-
-
-const Todo = ({ todo, toggleComplete, deleteTodo, updateTextTodo }) => {
+const Todo = ({ todo, toggleComplete, deleteTodo, updateTodoText }) => {
     const [isUpdateTodoText, setIsUpdateTodoText] = useState(false);
     const [updatedText, setUpdatedText] = useState(todo.text);
 
@@ -13,7 +13,7 @@ const Todo = ({ todo, toggleComplete, deleteTodo, updateTextTodo }) => {
     };
 
     const handleUpdate = () => {
-        updateTextTodo(todo._id, updatedText);
+        updateTodoText(todo._id, updatedText);
         setIsUpdateTodoText(false);
     };
 
@@ -23,15 +23,15 @@ const Todo = ({ todo, toggleComplete, deleteTodo, updateTextTodo }) => {
 
     return (
         <li>
-            <div className="check-todo">
+            <div className={styles.checkTodo}>
                 <input
-                    className="check-box"
+                    className={styles.checkBox}
                     type="checkbox"
                     checked={todo.completed}
                     onChange={() => toggleComplete(todo._id)}
                 />
                 <input
-                    className="text"
+                    className={styles.text}
                     type="text"
                     disabled={!isUpdateTodoText}
                     style={{ textDecoration: todo.completed ? 'line-through' : 'none' }}
@@ -39,16 +39,27 @@ const Todo = ({ todo, toggleComplete, deleteTodo, updateTextTodo }) => {
                     onChange={handleTextChange}
                 />
             </div>
-            <div className="action-todo">
+            <div className={styles.actionTodo}>
                 {isUpdateTodoText ? (
-                    <FontAwesomeIcon className="action-icon" icon={faSave} onClick={handleUpdate}></FontAwesomeIcon>
+                    <FontAwesomeIcon className={styles.actionIcon} icon={faSave} onClick={handleUpdate}/>
                 ) : (
-                    <FontAwesomeIcon className="action-icon" icon={faEdit} onClick={toggleUpdateTodoText}></FontAwesomeIcon>
+                    <FontAwesomeIcon className={styles.actionIcon} icon={faEdit} onClick={toggleUpdateTodoText}/>
                 )}
-                <FontAwesomeIcon className="action-icon" icon={faTrash} onClick={() => deleteTodo(todo._id)}></FontAwesomeIcon>
+                <FontAwesomeIcon className={styles.actionIcon} icon={faTrash} onClick={() => deleteTodo(todo._id)}/>
             </div>
         </li>
     );
+};
+
+Todo.propTypes = {
+    todo: PropTypes.shape({
+        _id: PropTypes.string.isRequired,
+        text: PropTypes.string.isRequired,
+        completed: PropTypes.bool.isRequired,
+    }).isRequired,
+    toggleComplete: PropTypes.func.isRequired,
+    deleteTodo: PropTypes.func.isRequired,
+    updateTodoText: PropTypes.func.isRequired,
 };
 
 export default Todo;

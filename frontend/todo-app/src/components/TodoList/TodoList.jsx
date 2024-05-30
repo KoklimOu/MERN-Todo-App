@@ -1,7 +1,8 @@
-import { useEffect, useState } from "react";
-import { createTodo, deleteTodo, getTodos, updateTodo } from "../services/todoService";
-import TodoForm from "./TodoForm";
-import Todo from "./Todo";
+import { useEffect, useState } from 'react';
+import { createTodo, deleteTodo, getTodos, updateTodo } from '../../services/todoService';
+import TodoForm from '../TodoForm/TodoForm';
+import Todo from '../Todo/Todo';
+import styles from './TodoList.module.css';
 
 const TodoList = () => {
     const [todos, setTodos] = useState([]);
@@ -61,10 +62,10 @@ const TodoList = () => {
     };
 
     return (
-        <div className="todo-list-container">
-            <h1>Todo List</h1>
-            <div className="todo-list-content">
-                <TodoForm addTodo={postTodo}/>
+        <div className={styles.todoListContainer}>
+            <h1 className={styles.title}>Todo List</h1>
+            <div className={styles.todoListContent}>
+                <TodoForm addTodo={postTodo} />
                 <ul>
                     {todos.length > 0 ? (
                         todos.map((todo) => (
@@ -73,7 +74,7 @@ const TodoList = () => {
                                 todo={todo}
                                 toggleComplete={toggleComplete}
                                 deleteTodo={deleteTodoById}
-                                updateTextTodo={updateTextTodo}
+                                updateTodoText={updateTextTodo}
                             />
                         ))
                     ) : (
