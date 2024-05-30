@@ -14,7 +14,7 @@ const TodoList = () => {
     const fetchTodos = async () => {
         try {
             const apiResponse = await getTodos();
-            if (apiResponse.data) setTodos(apiResponse.data);
+            if (apiResponse.data) setTodos([...apiResponse.data].reverse());
         } catch (error) {
             console.error('Error fetching data:', error.message);
         }
