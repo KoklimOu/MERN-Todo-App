@@ -84,6 +84,8 @@ Before you begin, ensure you have met the following requirements:
 - Open your browser and navigate to `http://localhost:3000` to view the application.
 - Use the interface to create, read, update, and delete todos.
 
+![Example GIF](mern-todoapp.gif)
+
 ## Contact
 
 If you have any questions or feedback, feel free to contact me at oukoklim@gmail.com.
