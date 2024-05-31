@@ -1,0 +1,45 @@
+# MERN Todo App
+
+This is the lesson learnt after completed the project.
+
+
+## Backend
+
+ ### Questions
+
+ - What is key word exports?
+ - WHy using API stardard response instead of just return the data?
+ - Regular function and arrow function, what's the difference?
+ - What the naming convention?.
+ - What's middleware? use(), express().use()?
+ - HTTP methods?
+ - What achitecture is this project use?
+
+ ### Understanding
+ - The file index.js is the entry point of the application. It initialize the Express app, connect database, and sets up middleware and routes.
+ - This application is using the Model-View-Controller architecture.
+    - Controllers: Handle the businness logic and interact with the models to fetch and minipulate data. They response to HTTP requests routed from the `routes` files.
+    - Models: Represent data structure and businness logic. Typical they are used with a database to perform CRUD operations.
+    -  Views: This application does not have Views but we can consider the views as the JSON response of xml... since this is the API application without views.
+    - Routes: is where you import controllers and define the endpoints.
+
+ - The beneficial of using API response standard is that its easier of both backend and frontend developer in case they don't understand what going with the response. The response code and messages can help developer identify why exactly is going on with the API response.
+ Example: code:401, mean the request is unurthorize so the frondend devloper know they might forget to put the header correctly, or provided invalid credential.
+ 
+ - Differences between regular function and arrow function:
+    - Argument: Regular function can the access the all arguements that provided to it, but arrow function can't.
+    - Explicit: Arrow function can return data without using the `return` keyword.
+    - The arrow function doesn't have it own execution context so `this` binding does not work.
+    example like you cannot access to the class field/properties... by using `this` key word but the regular work can do that. 
+ 
+ - The middleware in express, is a function or a program or something that run between the request and response. anything, meaning after the request, the code like app.get('/', (req, res))... is a middleware. But when you talking about middleware we think something or function that took place between the request and the action like check authenication before the route then response the request. or apply the acros-origin resouce sharing function before reponse the data to user.
+
+## Frontend
+
+ ### Questions
+  - What's the point of using `propTypes`?
+
+ ### Facts
+  - `.module` in the context of `.module.css` files refers to CSS Modules, a popular CSS scoping mechanism used in React applications to ensure that CSS styles are scoped locally to the component they are imported into, rather than being globally scoped. This helps to avoid style conflicts and makes it easier to manage styles in large applications.
+  - Using `className={styles.todoListContainer}` ensures that you are applying the correct, scoped styles from your CSS Modules to the component. This approach leverages the benefits of CSS Modules, such as local scoping and avoiding style conflicts.
+   When you import a CSS Module (e.g., import styles from './TodoList.module.css';), it transforms the CSS file into a JavaScript object where each class name is a property of that object. The values of these properties are unique identifiers generated at build time.
