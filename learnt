@@ -14,6 +14,7 @@ This is the lesson learnt after completed the project.
  - What's middleware? use(), express().use()?
  - HTTP methods?
  - What achitecture is this project use?
+ - WHat is RESTful principles? 
 
  ### Understanding
  - The file index.js is the entry point of the application. It initialize the Express app, connect database, and sets up middleware and routes.
